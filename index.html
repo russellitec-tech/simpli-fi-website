@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Simpli-fi AI — Never Miss Another Call | AI Receptionists & Business Hub for SA SMEs</title>
+<meta name="description" content="Simpli-fi AI gives South African businesses a 24/7 AI receptionist and an all-in-one business hub — CRM, pipeline, quotes and bookings. Call our live demo: 043 023 0182." />
+<style>
+  :root{
+    --aqua:#00BFA6; --aqua-dark:#00A38E; --aqua-glow:rgba(0,191,166,.25);
+    --charcoal:#111820; --panel:#1C2B3A; --panel-2:#162330;
+    --ink:#1C2B3A; --ink-mid:#2E3F52; --ink-soft:#607080; --ink-faint:#8899AA;
+    --bg:#F7F9FA; --white:#FFFFFF; --border:#E3E8EC; --border-dark:rgba(255,255,255,.09);
+    --radius:14px; --radius-sm:10px;
+    --font:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  section{padding:88px 0}
+  h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.15}
+  .label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua);margin-bottom:14px}
+  .section-title{font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:14px}
+  .section-sub{font-size:1rem;color:var(--ink-soft);max-width:620px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:.95rem;transition:all .18s ease;cursor:pointer;border:none}
+  .btn-aqua{background:var(--aqua);color:#fff}
+  .btn-aqua:hover{background:var(--aqua-dark);transform:translateY(-1px);box-shadow:0 8px 24px var(--aqua-glow)}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25)}
+  .btn-ghost:hover{border-color:var(--aqua);color:var(--aqua)}
+  .btn-dark{background:var(--charcoal);color:#fff}
+  .btn-dark:hover{background:var(--panel);transform:translateY(-1px)}
+
+  /* ── Logo ── */
+  .logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:1.25rem;letter-spacing:-.02em}
+  .logo .fi{color:var(--aqua)}
+  .logo-mark{width:38px;height:38px;flex-shrink:0}
+
+  /* ── Nav ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(17,24,32,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-dark)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  nav .logo{color:#fff}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-size:.9rem;font-weight:600;color:rgba(255,255,255,.75)}
+  .nav-links a:hover{color:var(--aqua)}
+  .nav-cta{padding:10px 20px;font-size:.85rem}
+  .menu-btn{display:none;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer}
+
+  /* ── Hero ── */
+  .hero{background:linear-gradient(160deg,var(--charcoal) 0%,var(--panel-2) 70%,#10312c 130%);color:#fff;padding:170px 0 110px;position:relative;overflow:hidden}
+  .hero::after{content:'';position:absolute;right:-180px;top:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,var(--aqua-glow),transparent 65%)}
+  .hero-inner{position:relative;z-index:1;max-width:760px}
+  .hero h1{font-size:clamp(2.4rem,6vw,4rem);margin-bottom:22px}
+  .hero h1 .hl{color:var(--aqua)}
+  .hero p.lead{font-size:1.15rem;color:rgba(255,255,255,.72);max-width:600px;margin-bottom:34px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+  .hero-trust{display:flex;gap:22px;flex-wrap:wrap;font-size:.82rem;color:rgba(255,255,255,.55)}
+  .hero-trust span::before{content:'✓ ';color:var(--aqua)}
+
+  /* ── Pain strip ── */
+  .pains{background:var(--white);padding:54px 0;border-bottom:1px solid var(--border)}
+  .pains-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .pain{display:flex;gap:14px;align-items:flex-start}
+  .pain-ico{width:42px;height:42px;border-radius:12px;background:rgba(0,191,166,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+  .pain h3{font-size:.98rem;margin-bottom:4px}
+  .pain p{font-size:.85rem;color:var(--ink-soft)}
+
+  /* ── Voice Lab ── */
+  .voicelab{background:linear-gradient(180deg,var(--charcoal),var(--panel-2));color:#fff}
+  .voicelab .section-sub{color:rgba(255,255,255,.6)}
+  .lab-demo{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;background:var(--panel);border:1px solid var(--border-dark);border-radius:var(--radius);padding:44px;margin:48px 0 64px}
+  .lab-demo h3{font-size:1.5rem;margin-bottom:12px}
+  .lab-demo h3 .hl{color:var(--aqua)}
+  .lab-demo p{font-size:.93rem;color:rgba(255,255,255,.65)}
+  .demo-feats{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+  .demo-feat{display:flex;gap:10px;align-items:center;font-size:.88rem;color:rgba(255,255,255,.78)}
+  .demo-feat::before{content:'✓';width:22px;height:22px;border-radius:7px;background:rgba(0,191,166,.15);border:1px solid rgba(0,191,166,.3);color:var(--aqua);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0}
+  .demo-call{text-align:center;background:var(--charcoal);border:1px solid var(--border-dark);border-radius:var(--radius);padding:40px 28px}
+  .demo-call .ring{width:78px;height:78px;margin:0 auto 18px;border-radius:50%;background:var(--aqua);display:flex;align-items:center;justify-content:center;font-size:2rem;animation:pulse 2.2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 var(--aqua-glow)}70%{box-shadow:0 0 0 22px rgba(0,191,166,0)}100%{box-shadow:0 0 0 0 rgba(0,191,166,0)}}
+  .demo-call .num{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:900;letter-spacing:.02em;color:#fff;display:block;margin-bottom:8px}
+  .demo-call .num:hover{color:var(--aqua)}
+  .demo-call small{color:rgba(255,255,255,.5);font-size:.82rem;display:block;margin-bottom:20px}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .tier{background:var(--panel);border:1px solid var(--border-dark);border-radius:var(--radius);padding:32px 28px;display:flex;flex-direction:column;position:relative}
+  .tier.featured{border-color:var(--aqua);box-shadow:0 0 40px rgba(0,191,166,.12)}
+  .tier .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--aqua);color:var(--charcoal);font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:999px}
+  .tier h3{font-size:1.12rem;margin-bottom:4px}
+  .tier .role{font-size:.83rem;color:rgba(255,255,255,.55);min-height:40px}
+  .tier .price{font-size:2rem;font-weight:900;margin:16px 0 2px}
+  .tier .price small{font-size:.85rem;font-weight:600;color:rgba(255,255,255,.5)}
+  .tier .mins{font-size:.8rem;color:var(--aqua);font-weight:700;margin-bottom:18px}
+  .tier ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:.86rem;color:rgba(255,255,255,.75);margin-bottom:26px}
+  .tier li::before{content:'✓ ';color:var(--aqua);font-weight:700}
+  .tier .btn{margin-top:auto;justify-content:center}
+  .lab-note{text-align:center;font-size:.8rem;color:rgba(255,255,255,.45);margin-top:26px}
+
+  /* ── Hub ── */
+  .hub{background:var(--white)}
+  .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:48px 0 64px}
+  .hub-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+  .hub-card .ico{width:44px;height:44px;border-radius:12px;background:rgba(0,191,166,.12);display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:16px}
+  .hub-card h3{font-size:1rem;margin-bottom:8px}
+  .hub-card p{font-size:.86rem;color:var(--ink-soft)}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .plan{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px 28px;display:flex;flex-direction:column;position:relative}
+  .plan.featured{border-color:var(--aqua);background:var(--white);box-shadow:0 12px 40px rgba(0,191,166,.1)}
+  .plan .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--aqua);color:#fff;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:999px}
+  .plan h3{font-size:1.12rem;margin-bottom:4px}
+  .plan .who{font-size:.83rem;color:var(--ink-soft);min-height:40px}
+  .plan .price{font-size:2rem;font-weight:900;margin:16px 0 2px}
+  .plan .price small{font-size:.85rem;font-weight:600;color:var(--ink-faint)}
+  .plan .users{font-size:.8rem;color:var(--aqua);font-weight:700;margin-bottom:18px}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:.86rem;color:var(--ink-mid);margin-bottom:26px}
+  .plan li::before{content:'✓ ';color:var(--aqua);font-weight:700}
+  .plan .btn{margin-top:auto;justify-content:center}
+  .hub-note{text-align:center;font-size:.8rem;color:var(--ink-faint);margin-top:26px}
+
+  /* ── Process ── */
+  .process{background:var(--bg)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px}
+  .step{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+  .step .n{font-size:.75rem;font-weight:800;color:var(--aqua);letter-spacing:.1em;margin-bottom:12px}
+  .step h3{font-size:.98rem;margin-bottom:8px}
+  .step p{font-size:.85rem;color:var(--ink-soft)}
+
+  /* ── Contact ── */
+  .contact{background:var(--white);border-top:1px solid var(--border)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;margin-top:48px}
+  .cd{display:flex;gap:14px;align-items:flex-start;margin-bottom:24px}
+  .cd .ico{width:42px;height:42px;border-radius:12px;background:rgba(0,191,166,.12);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+  .cd label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+  .cd span{font-size:.95rem;font-weight:700}
+  form{display:flex;flex-direction:column;gap:14px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  input,textarea,select{font-family:var(--font);font-size:.9rem;padding:13px 16px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);width:100%;outline:none;transition:border-color .15s}
+  input:focus,textarea:focus,select:focus{border-color:var(--aqua)}
+  textarea{min-height:120px;resize:vertical}
+
+  /* ── Footer ── */
+  footer{background:var(--charcoal);color:rgba(255,255,255,.55);padding:40px 0;font-size:.83rem}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  footer .logo{color:#fff;font-size:1rem}
+  footer .logo-mark{width:28px;height:28px}
+
+  /* ── Reveal ── */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .pains-grid,.tiers,.hub-grid,.plans,.steps{grid-template-columns:1fr}
+    .lab-demo,.contact-grid{grid-template-columns:1fr}
+    .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--charcoal);flex-direction:column;padding:24px;gap:18px;border-bottom:1px solid var(--border-dark)}
+    .nav-links.open{display:flex}
+    .menu-btn{display:block}
+    section{padding:64px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────── NAV ───────── -->
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">
+      <svg class="logo-mark" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="48" cy="48" r="48" fill="#00BFA6"/>
+        <g fill="#1C2B3A" opacity=".15">
+          <rect x="14" y="24" width="6" height="48" rx="3"/><rect x="24" y="16" width="6" height="64" rx="3"/>
+          <rect x="34" y="20" width="6" height="56" rx="3"/><rect x="44" y="12" width="6" height="72" rx="3"/>
+          <rect x="54" y="18" width="6" height="60" rx="3"/><rect x="64" y="24" width="6" height="48" rx="3"/>
+          <rect x="74" y="20" width="6" height="56" rx="3"/>
+        </g>
+        <text x="48" y="66" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="58" font-weight="900" fill="#fff">S</text>
+      </svg>
+      simpli-<span class="fi">fi</span>
+    </a>
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#voicelab" onclick="closeMenu()">The Voice Lab</a>
+      <a href="#hub" onclick="closeMenu()">The Hub</a>
+      <a href="#process" onclick="closeMenu()">How It Works</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+      <a href="tel:0430230182" class="btn btn-aqua nav-cta">📞 043 023 0182</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ───────── HERO ───────── -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <span class="label">AI Automation · East London, South Africa</span>
+    <h1>Never miss<br/>another <span class="hl">call.</span></h1>
+    <p class="lead">Every unanswered ring is a customer choosing your competitor. Simpli-fi AI gives your business a receptionist that answers 24/7, captures every lead, and books the callback — starting from R499 a month.</p>
+    <div class="hero-ctas">
+      <a href="tel:0430230182" class="btn btn-aqua">📞 Talk to our AI right now — 043 023 0182</a>
+      <a href="#voicelab" class="btn btn-ghost">Explore plans</a>
+    </div>
+    <div class="hero-trust">
+      <span>Live in minutes, not months</span>
+      <span>Month-to-month — no contracts</span>
+      <span>POPIA compliant</span>
+      <span>Built for SA businesses</span>
+    </div>
+  </div>
+</header>
+
+<!-- ───────── PAIN STRIP ───────── -->
+<div class="pains">
+  <div class="wrap pains-grid">
+    <div class="pain reveal"><div class="pain-ico">📵</div><div><h3>Calls ring out at lunch & after 5</h3><p>Your customers don't keep office hours. Right now, those calls go to a competitor who answers.</p></div></div>
+    <div class="pain reveal"><div class="pain-ico">📝</div><div><h3>Leads live on sticky notes</h3><p>Quotes in Word, contacts in a spreadsheet, follow-ups in someone's head. Deals slip through the cracks.</p></div></div>
+    <div class="pain reveal"><div class="pain-ico">⏱</div><div><h3>Admin eats your selling time</h3><p>Your best people spend hours on reception and paperwork instead of customers and revenue.</p></div></div>
+  </div>
+</div>
+
+<!-- ───────── VOICE LAB ───────── -->
+<section class="voicelab" id="voicelab">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label">🎙 The Voice Lab</span>
+      <h2 class="section-title">Meet Auria. Then build your own.</h2>
+      <p class="section-sub">Our AI voice agents answer like your best receptionist — warm, professional, and never off sick. Start by catching the calls you already miss, or hand over the whole front desk.</p>
+    </div>
+
+    <div class="lab-demo reveal">
+      <div>
+        <h3>Don't take our word for it — <span class="hl">phone her.</span></h3>
+        <p>Auria is our own receptionist, running live on the same technology we deploy for clients. Ask her about our plans, our pricing, anything — she'll even book your callback.</p>
+        <div class="demo-feats">
+          <div class="demo-feat">Answers instantly, 24 hours a day</div>
+          <div class="demo-feat">Natural South African voice</div>
+          <div class="demo-feat">Captures your name & number in conversation</div>
+          <div class="demo-feat">Books callbacks and takes messages</div>
+          <div class="demo-feat">Fully customised to your business & tone</div>
+        </div>
+      </div>
+      <div class="demo-call">
+        <div class="ring">📞</div>
+        <a class="num" href="tel:0430230182">043 023 0182</a>
+        <small>Live now — give her a call</small>
+        <a href="tel:0430230182" class="btn btn-aqua">Call the live demo</a>
+      </div>
+    </div>
+
+    <div class="tiers">
+      <div class="tier reveal">
+        <h3>Overflow</h3>
+        <p class="role">Keep your number and your team — we catch what they can't. Lunch, after-hours, busy lines.</p>
+        <div class="price">R499<small>/month</small></div>
+        <div class="mins">150 minutes included</div>
+        <ul>
+          <li>Answers missed & after-hours calls</li>
+          <li>Takes messages, captures every lead</li>
+          <li>Books callbacks with your team</li>
+          <li>Standard South African voices</li>
+          <li>Daily summary of every call</li>
+        </ul>
+        <a href="#contact" class="btn btn-aqua">Start catching calls</a>
+      </div>
+      <div class="tier featured reveal">
+        <span class="tag">Most popular</span>
+        <h3>AI Receptionist</h3>
+        <p class="role">Your full front desk — every call answered, every enquiry handled, every lead captured.</p>
+        <div class="price">R799<small>/month</small></div>
+        <div class="mins">400 minutes included</div>
+        <ul>
+          <li>Everything in Overflow</li>
+          <li>Answers every call, 24/7</li>
+          <li>Your scripts, FAQs & business rules</li>
+          <li>Bookings & callback scheduling</li>
+          <li>Urgent-call transfer to your team</li>
+        </ul>
+        <a href="#contact" class="btn btn-aqua">Hire your receptionist</a>
+      </div>
+      <div class="tier reveal">
+        <h3>Voice Pro</h3>
+        <p class="role">A bespoke voice agent built around your workflows — with your own cloned voice if you want it.</p>
+        <div class="price">Custom</div>
+        <div class="mins">Tailored minutes & integrations</div>
+        <ul>
+          <li>Everything in AI Receptionist</li>
+          <li><strong>Voice cloning</strong> — your voice, on every call</li>
+          <li>Custom workflows & integrations</li>
+          <li>Multiple numbers & departments</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Talk to us</a>
+      </div>
+    </div>
+    <p class="lab-note">Founding-customer pricing. Additional minutes at R1.50/min — transparent, no surprises. All plans month-to-month with no long-term contracts. Setup subject to a scoping assessment.</p>
+  </div>
+</section>
+
+<!-- ───────── THE HUB ───────── -->
+<section class="hub" id="hub">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label">🗂 The Hub</span>
+      <h2 class="section-title">One hub for your whole business</h2>
+      <p class="section-sub">Customer details in a spreadsheet. Quotes in Word. Follow-ups in someone's head. Sound familiar? The Hub puts your CRM, sales pipeline, quotes, bookings and reporting in one place — not seven apps.</p>
+    </div>
+
+    <div class="hub-grid">
+      <div class="hub-card reveal"><div class="ico">📊</div><h3>A pipeline that knows your margins</h3><p>Drag-and-drop deals with once-off and monthly recurring profit tracked separately — built for service businesses, not just sales teams.</p></div>
+      <div class="hub-card reveal"><div class="ico">📄</div><h3>Quotes out in minutes</h3><p>Build a branded, professional PDF quote straight from the deal — line items, costs and margins included.</p></div>
+      <div class="hub-card reveal"><div class="ico">⏰</div><h3>Never lose a deal to silence</h3><p>Stale-deal alerts after 14 quiet days, automatic follow-up reminders, and a dashboard that shows what needs attention today.</p></div>
+      <div class="hub-card reveal"><div class="ico">🎯</div><h3>Know your competition</h3><p>Track who you're up against on every deal — their strengths, their contract end dates, and when to strike.</p></div>
+      <div class="hub-card reveal"><div class="ico">📅</div><h3>Bookings, tasks & reports</h3><p>The daily running of your business — appointments, to-dos, win rates and revenue trends, all in one view.</p></div>
+      <div class="hub-card reveal"><div class="ico">🎙</div><h3>Your AI receptionist feeds it</h3><p>Calls Auria answers land in the Hub automatically — new leads, messages and booked callbacks, no typing required.</p></div>
+    </div>
+
+    <div class="plans">
+      <div class="plan reveal">
+        <h3>Starter</h3>
+        <p class="who">Small businesses and startups getting organised for the first time.</p>
+        <div class="price">R1 499<small>/month</small></div>
+        <div class="users">Up to 3 users</div>
+        <ul>
+          <li>Full CRM — contacts, companies, deals</li>
+          <li>Pipeline & deal tracking</li>
+          <li>Quotes with branded PDFs</li>
+          <li>Bookings, tasks & reminders</li>
+          <li>Email support</li>
+        </ul>
+        <a href="#contact" class="btn btn-dark">Get started</a>
+      </div>
+      <div class="plan featured reveal">
+        <span class="tag">Best value</span>
+        <h3>Business</h3>
+        <p class="who">Growing teams that need automation and collaboration.</p>
+        <div class="price">R3 499<small>/month</small></div>
+        <div class="users">Up to 10 users</div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Advanced workflow automation</li>
+          <li>WhatsApp & email integration</li>
+          <li>Reports & analytics dashboard</li>
+          <li>Priority support & custom onboarding</li>
+        </ul>
+        <a href="#contact" class="btn btn-aqua">Grow with us</a>
+      </div>
+      <div class="plan reveal">
+        <h3>Enterprise</h3>
+        <p class="who">Larger organisations with complex or data-sensitive needs.</p>
+        <div class="price">Custom</div>
+        <div class="users">Unlimited users</div>
+        <ul>
+          <li>Everything in Business</li>
+          <li>Dedicated infrastructure</li>
+          <li>Custom integrations</li>
+          <li>SLA-backed support</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="#contact" class="btn btn-dark">Talk to us</a>
+      </div>
+    </div>
+    <p class="hub-note">All plans month-to-month. POPIA-compliant data handling. Setup subject to a scoping assessment. Add the AI Receptionist, WhatsApp Agent (R499/m) or Voice-to-Text (R399/m) to any plan.</p>
+  </div>
+</section>
+
+<!-- ───────── PROCESS ───────── -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label">How it works</span>
+      <h2 class="section-title">From first call to fully live</h2>
+      <p class="section-sub">No IT department needed. We do the heavy lifting — you carry on running your business.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">STEP 01</div><h3>Scoping call</h3><p>We learn how your business handles calls, leads and quotes — and where the leaks are.</p></div>
+      <div class="step reveal"><div class="n">STEP 02</div><h3>Configure & train</h3><p>We build your agent's scripts and knowledge, set up your Hub, and import your existing data.</p></div>
+      <div class="step reveal"><div class="n">STEP 03</div><h3>Go live</h3><p>Your AI receptionist starts answering and your team starts working from one hub — usually within days.</p></div>
+      <div class="step reveal"><div class="n">STEP 04</div><h3>Refine & support</h3><p>We monitor, tune and improve continuously. You get a partner, not just software.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── CONTACT ───────── -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label">Get started</span>
+      <h2 class="section-title">Let's talk about your business</h2>
+      <p class="section-sub">Call us — Auria will answer — or leave your details and we'll phone you back within one business day.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="cd"><div class="ico">📞</div><div><label>Phone — answered by Auria, 24/7</label><span><a href="tel:0430230182">043 023 0182</a></span></div></div>
+        <div class="cd"><div class="ico">✉️</div><div><label>Email</label><span><a href="mailto:russell@simpli-fi.co.za">russell@simpli-fi.co.za</a></span></div></div>
+        <div class="cd"><div class="ico">📍</div><div><label>Based in</label><span>East London, Eastern Cape — serving all of South Africa</span></div></div>
+        <div class="cd"><div class="ico">🕗</div><div><label>Office hours</label><span>Mon–Fri, 8:00–17:00 · Auria answers around the clock</span></div></div>
+      </div>
+      <form class="reveal" action="mailto:russell@simpli-fi.co.za" method="post" enctype="text/plain">
+        <div class="frow">
+          <input type="text" name="name" placeholder="Your name *" required />
+          <input type="tel" name="phone" placeholder="Phone number *" required />
+        </div>
+        <input type="email" name="email" placeholder="Email address" />
+        <select name="interest">
+          <option value="">What are you interested in?</option>
+          <option>Overflow call answering (R499/m)</option>
+          <option>AI Receptionist (R799/m)</option>
+          <option>Voice Pro / voice cloning</option>
+          <option>The Hub — Starter (R1 499/m)</option>
+          <option>The Hub — Business (R3 499/m)</option>
+          <option>Enterprise / something else</option>
+        </select>
+        <textarea name="message" placeholder="Tell us a little about your business and what you'd like to automate…"></textarea>
+        <button type="submit" class="btn btn-aqua" style="justify-content:center">Request my callback →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FOOTER ───────── -->
+<footer>
+  <div class="wrap foot">
+    <a href="#" class="logo">
+      <svg class="logo-mark" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="48" cy="48" r="48" fill="#00BFA6"/>
+        <text x="48" y="66" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="58" font-weight="900" fill="#fff">S</text>
+      </svg>
+      simpli-<span class="fi">fi</span>
+    </a>
+    <div>© 2026 Simpli-fi AI (Pty) Ltd · East London, South Africa · POPIA compliant</div>
+    <a href="tel:0430230182" style="color:var(--aqua);font-weight:700">043 023 0182</a>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+  function closeMenu(){document.getElementById('navLinks').classList.remove('open')}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
