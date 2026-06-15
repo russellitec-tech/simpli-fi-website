@@ -58,6 +58,8 @@
   .hero h1 .hl{color:var(--aqua)}
   .hero p.lead{font-size:1.15rem;color:rgba(255,255,255,.72);max-width:600px;margin-bottom:34px}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+  .hero-cta-pair{display:flex;gap:14px;flex-wrap:wrap;width:100%;max-width:620px}
+  .hero-cta-pair .btn{flex:1 1 220px;justify-content:center}
   .hero-trust{display:flex;gap:22px;flex-wrap:wrap;font-size:.82rem;color:rgba(255,255,255,.55)}
   .hero-trust span::before{content:'✓ ';color:var(--aqua)}
 
@@ -197,8 +199,10 @@
     <h1>Never miss<br/>another <span class="hl">call.</span></h1>
     <p class="lead">Every unanswered ring is a customer choosing your competitor. Simpli-fi AI gives your business a receptionist that answers 24/7, captures every lead, and books the callback — starting from R499 a month.</p>
     <div class="hero-ctas">
-      <a href="tel:0430230182" class="btn btn-aqua">📞 Talk to our AI right now — 043 023 0182</a>
-      <button type="button" class="btn btn-ghost" onclick="window.sfiOpenChat&&window.sfiOpenChat()">💬 Chat with our AI</button>
+      <div class="hero-cta-pair">
+        <a href="tel:0430230182" class="btn btn-aqua">📞 Talk to our AI</a>
+        <button type="button" class="btn btn-aqua" onclick="window.sfiOpenChat&&window.sfiOpenChat()">💬 Chat with our AI</button>
+      </div>
       <a href="#voicelab" class="btn btn-ghost">Explore plans</a>
     </div>
     <div class="hero-trust">
