@@ -36,6 +36,8 @@
   /* ── Logo ── */
   .logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:1.25rem;letter-spacing:-.02em}
   .logo .fi{color:var(--aqua)}
+  .logo .word{white-space:nowrap}
+  .logo .ai{color:var(--aqua);font-weight:800}
   .logo-mark{width:38px;height:38px;flex-shrink:0}
 
   /* ── Nav ── */
@@ -175,7 +177,7 @@
         </g>
         <text x="48" y="66" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="58" font-weight="900" fill="#fff">S</text>
       </svg>
-      simpli-<span class="fi">fi</span>
+      <span class="word">simpli-<span class="fi">fi</span> <span class="ai">AI</span></span>
     </a>
     <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
     <div class="nav-links" id="navLinks">
@@ -196,6 +198,7 @@
     <p class="lead">Every unanswered ring is a customer choosing your competitor. Simpli-fi AI gives your business a receptionist that answers 24/7, captures every lead, and books the callback — starting from R499 a month.</p>
     <div class="hero-ctas">
       <a href="tel:0430230182" class="btn btn-aqua">📞 Talk to our AI right now — 043 023 0182</a>
+      <button type="button" class="btn btn-ghost" onclick="window.sfiOpenChat&&window.sfiOpenChat()">💬 Chat with our AI</button>
       <a href="#voicelab" class="btn btn-ghost">Explore plans</a>
     </div>
     <div class="hero-trust">
@@ -425,7 +428,7 @@
         <circle cx="48" cy="48" r="48" fill="#00BFA6"/>
         <text x="48" y="66" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="58" font-weight="900" fill="#fff">S</text>
       </svg>
-      simpli-<span class="fi">fi</span>
+      <span class="word">simpli-<span class="fi">fi</span> <span class="ai">AI</span></span>
     </a>
     <div>© 2026 Simpli-fi AI (Pty) Ltd · East London, South Africa · POPIA compliant</div>
     <a href="tel:0430230182" style="color:var(--aqua);font-weight:700">043 023 0182</a>
@@ -544,6 +547,7 @@
       if(c&&c.enabled){el('sfiName').textContent=c.bot_name||'Assistant';welcome=c.welcome_message||'Hi! How can I help?';btn.style.display='flex';}
     }).catch(function(){});
   }
+  window.sfiOpenChat=function(){if(panel)openPanel();};
   if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
 })();
 </script>
